@@ -1,0 +1,35 @@
+[project]
+name = "multitenant-rag-saas"
+version = "0.1.0"
+description = "Multi-tenant RAG API on PostgreSQL + pgvector with row-level security"
+readme = "README.md"
+requires-python = ">=3.11"
+license = { text = "MIT" }
+authors = [{ name = "Zohaib Tariq" }]
+dependencies = [
+  "fastapi>=0.110",
+  "uvicorn>=0.29",
+  "python-multipart>=0.0.9",
+  "psycopg[binary]>=3.2",
+  "pgvector>=0.3",
+  "numpy>=1.26",
+  "pypdf>=4.0",
+  "openai>=1.40",
+  "python-dotenv>=1.0",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8", "httpx>=0.27"]
+
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+packages = ["rag_saas"]
+
+[tool.setuptools.package-data]
+rag_saas = ["schema.sql"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
